@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA CALCULATOR</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <style>
+        *{
+            overflow-x: hidden;
+        }
+        body{
+            overflow-x: auto;
+            text-align: left;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .title {
+            color: #0056b3;
+            font-size: 35px;
+            margin-bottom: 1px;
+        }
+
+        @media screen and(max-width:600px) {
+            .title{
+                font-size: 10px;
+            }
+        }
+        .container {
+            display: block;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .main-box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #00ff88;
+            border: 2px solid black;
+        }
+
+        .Sub-name {
+            margin-bottom: 20px;
+        }
+
+        .Sub-title {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            font-size: 1em;
+            font-weight: bold;
+        }
+
+        .btn {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 30px;
+            font-size: 1em;
+            font-family: sans-serif;
+            font-weight: bold;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            margin-right: 450px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            font-size: 2em;
+            color: black;
+            /* padding: 5px; */
+            text-align: center;
+            background-color: rgb(212, 212, 212);
+        }
+
+        #result {
+            padding: 5px;
+            height: 30px;
+            width: 95%;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 2px solid blue;
+            font-size: 1.2em;
+            font-family: sans-serif;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .social-menu {
+            margin: 10px 0;
+        }
+
+        .social-menu ul {
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-menu ul li {
+            list-style: none;
+        }
+
+        .social-menu ul li .fa {
+            color: #000000;
+            font-size: 25px;
+            line-height: 50px;
+            transition: .5s;
+        }
+
+        .social-menu ul li .fa:hover {
+            color: #ffffff;
+        }
+
+        .social-menu ul li a {
+            position: relative;
+            display: block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+            text-align: center;
+            transition: 0.5s;
+            transform: translate(0, 0px);
+            box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            margin-right: 12px;
+            margin-bottom: 10px;
+        }
+
+        .social-menu ul li a:hover {
+            transform: rotate(0deg) skew(0deg) translate(0, -10px);
+        }
+
+        .social-menu ul li:nth-child(1) a:hover {
+            background-color: #3b5999;
+        }
+
+        .social-menu ul li:nth-child(2) a:hover {
+            background-color: #55acee;
+        }
+
+        .social-menu ul li:nth-child(3) a:hover {
+            background-color: #e4405f;
+        }
+
+        .social-menu ul li:nth-child(4) a:hover {
+            background-color: #cd201f;
+        }
+
+        .social-menu ul li:nth-child(5) a:hover {
+            background-color: #0077B5;
+        }
+
+        @media (max-width: 600px) {
+            .Sub-title {
+                font-size: 1em;
+            }
+
+            button {
+                width: 100%;
+                padding: 10px;
+                font-size: 1em;
+            }
+
+            .footer {
+                font-size: 0.8em;
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .social-menu ul {
+                flex-direction: column;
+            }
+
+            .social-menu ul li {
+                margin-bottom: 10px;
+            }
+
+            .footer {
+                font-size: 0.7em;
+                padding: 6px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="title"><u><center>GPA CALCULATOR WEBSITE</center></u></h1>
+    <div class="container">
+        <div class="main-box">
+            <div class="Sub-name">
+                <h1 class="Sub-title">MICRO PROCESSOR AND MICRO CONTROLLER (EC1601)</h1>
+                <select id="MPMC">
+                    <option>Choose</option>
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C</option>
+                    <option value="4">RA</option>
+                </select>
+            </div>
+            <div class="Sub-name">
+                <h1 class="Sub-title">VLSI DESIGN (EC1602)</h1>
+                <select id="VLSI">
+                    <option>Choose</option>
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C</option>
+                    <option value="4">RA</option>
+                </select>
+            </div>
+            <div class="Sub-name">
+                <h1 class="Sub-title">WIRELESS COMMUNICATION (EC1603)</h1>
+                <select id="WC">
+                    <option>Choose</option>
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C</option>
+                    <option value="4">RA</option>
+                </select>
+            </div>
+            <div class="Sub-name">
+                <h1 class="Sub-title">ANTENNAS AND MICROWAVE ENGINEERING (EC1604)</h1>
+                <select id="ANTENNA">
+                    <option>Choose</option>
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C</option>
+                    <option value="4">RA</option>
+                </select>
+            </div>
+            <div class="Sub-name">
+                <h1 class="Sub-title">MULTIMEDIA COMPRESSION AND COMMUNICATION (EC1605)</h1>
+                <select id="MMC">
+                    <option>Choose</option>
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C</option>
+                    <option value="4">RA</option>
+                </select>
+            </div>
+            <div class="Sub-name">
+                <h1 class="Sub-title">DIGITAL IMAGE PROCESSING (EC1606)</h1>
+                <select id="DIP_CUM_LAB">
+                    <option>Choose</option>
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C</option>
+                    <option value="4">RA</option>
+                </select>
+            </div>
+            <div class="Sub-name">
+                <h1 class="Sub-title">MICROPROCESSORS AND MICROCONTROLLER LABORATORY (EC1607)</h1>
+                <select id="MPMC_LAB">
+                    <option>Choose</option>
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C</option>
+                    <option value="4">RA</option>
+                </select>
+            </div>
+            <div class="Sub-name">
+                <h1 class="Sub-title">VLSI DESIGN LABORATORY (EC1608)</h1>
+                <select id="VLSI_LAB">
+                    <option>Choose</option>
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C</option>
+                    <option value="4">RA</option>
+                </select>
+            </div>
+            <div class="Sub-name">
+                <h1 class="Sub-title">MINI PROJECT (EC1609)</h1>
+                <select id="MINIPROJECT">
+                    <option>Choose</option>
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C</option>
+                    <option value="4">RA</option>
+                </select>
+            </div>
+            <div class="Sub-name">
+                <h1 class="Sub-title">VALUE ADDED COURSE (EC1610)</h1>
+                <select id="VAC">
+                    <option>Choose</option>
+                    <option value="10">O</option>
+                    <option value="9">A+</option>
+                    <option value="8">A</option>
+                    <option value="7">B+</option>
+                    <option value="6">B</option>
+                    <option value="5">C</option>
+                    <option value="4">RA</option>
+                </select>
+            </div>
+            <div class="btn">
+                <button onclick="sum()">CALCULATE</button>
+            </div>
+            <div>
+                <center>
+                    <input type="text" id="result">
+                </center>
+            </div>
+        </div>
+    </div>
+    <div class="social-menu">
+        <ul>
+            <li><a href="https://www.facebook.com/profile.php?id=61557892358310&mibextid=ZbWKwL"><i
+                        class="fa fa-facebook"></i></a></li>
+            <li><a href="https://x.com/poona_memes?t=nFTwphKrHMsI7iOa11OW5A&s=08&mx=2"><i class="fa fa-twitter"></i></a>
+            </li>
+            <li><a href="https://www.instagram.com/poona_memez/?utm_source=ig_web_button_share_sheet"><i
+                        class="fa fa-instagram"></i></a></li>
+            <li><a href="https://www.youtube.com/channel/UCWHNS2C-rLSsBNBv2pngSOw"><i class="fa fa-youtube"></i></a>
+            </li>
+            <li><a href="https://www.linkedin.com/in/mohamedanees/"><i class="fa fa-linkedin"></i></a></li>
+        </ul>
+    </div>
+    <footer>
+        <h1 class="footer">Copyright &#169 : Content designed and developed by Mohamed Anees M K, Thanking you for
+            visiting my Website.</h1>
+    </footer>
+</body>
+<script>
+    function sum() {
+        // Getting values from the user 
+        var grade_1 = parseInt(document.getElementById('MPMC').value, 10);
+        var grade_2 = parseInt(document.getElementById('VLSI').value, 10);
+        var grade_3 = parseInt(document.getElementById('WC').value, 10);
+        var grade_4 = parseInt(document.getElementById('ANTENNA').value, 10);
+        var grade_5 = parseInt(document.getElementById('MMC').value, 10);
+        var grade_6 = parseInt(document.getElementById('DIP_CUM_LAB').value, 10);
+        var grade_7 = parseInt(document.getElementById('MPMC_LAB').value, 10);
+        var grade_8 = parseInt(document.getElementById('VLSI_LAB').value, 10);
+        var grade_9 = parseInt(document.getElementById('VAC').value, 10);
+        var grade_10 = parseInt(document.getElementById('MINIPROJECT').value, 10);
+
+        // Calculating the GPA from the user value
+        var SumOfGrades = (grade_1 * 3) + (grade_2 * 3) + (grade_3 * 3) + (grade_4 * 4) + (grade_5 * 3) + (grade_6 * 4) + (grade_7 * 2) + (grade_8 * 2) + (grade_9 * 1) + (grade_10 * 1);
+        var result = (SumOfGrades / 26);
+
+        // Since the resultant values will have more number of digits we should round off to 2 digits
+        var round_off = result.toFixed(2);
+        document.getElementById('result').value = "Your GPA : " + round_off;
+    }
+</script>
+</html>
